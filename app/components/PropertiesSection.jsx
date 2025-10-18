@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { DirectionAwareHover } from "./ui/direction-aware-hover";
 
 export default function LodgesSection() {
   const [lodges] = useState([
@@ -49,22 +50,19 @@ export default function LodgesSection() {
   ]);
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white font-poppins">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 font-poppins">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Featured Properties</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 bg-gray-50">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {lodges.slice(0, 6).map((lodge) => (
-            <div key={lodge.id} className="bg-white rounded-xl overflow-hidden">
-              <img src={lodge.image} alt={lodge.title} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{lodge.title}</h3>
-                <p className="text-gray-600 mb-4">{lodge.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-blue-600">${lodge.price.toLocaleString()}</span>
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">View Details</button>
-                </div>
-              </div>
-            </div>
+            <DirectionAwareHover
+              key={lodge.id}
+              imageUrl={lodge.image}
+              className="w-full h-[400px] md:h-96 rounded-3xl"
+            >
+              <p className="font-bold text-xl">{lodge.title}</p>
+              <p className="font-normal text-sm">${lodge.price.toLocaleString()}</p>
+            </DirectionAwareHover>
           ))}
         </div>
       </div>

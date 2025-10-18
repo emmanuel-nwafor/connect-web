@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 
 import { AnimatePresence, motion } from "motion/react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 export const DirectionAwareHover = ({
   imageUrl,
@@ -78,20 +78,15 @@ export const DirectionAwareHover = ({
             }}>
             <img
               alt="image"
-              className={cn("h-full w-full object-cover scale-[1.15]", imageClassName)}
+              className={cn("h-[400px] w-full object-cover scale-[1.15]", imageClassName)}
               width="1000"
               height="1000"
               src={imageUrl} />
           </motion.div>
-          <motion.div
-            variants={textVariants}
-            transition={{
-              duration: 0.5,
-              ease: "easeOut",
-            }}
+          <div
             className={cn("text-white absolute bottom-4 left-4 z-40", childrenClassName)}>
             {children}
-          </motion.div>
+          </div>
         </motion.div>
       </AnimatePresence>
     </motion.div>
@@ -118,34 +113,5 @@ const variants = {
   },
   right: {
     x: -20,
-  },
-};
-
-const textVariants = {
-  initial: {
-    y: 0,
-    x: 0,
-    opacity: 0,
-  },
-  exit: {
-    y: 0,
-    x: 0,
-    opacity: 0,
-  },
-  top: {
-    y: -20,
-    opacity: 1,
-  },
-  bottom: {
-    y: 2,
-    opacity: 1,
-  },
-  left: {
-    x: -2,
-    opacity: 1,
-  },
-  right: {
-    x: 20,
-    opacity: 1,
   },
 };
