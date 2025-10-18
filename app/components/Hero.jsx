@@ -31,7 +31,7 @@ export default function Hero() {
         }}
       >
         <div className="absolute inset-0 bg-blue-500/20"></div>
-        <div className="relative z-10 w-full max-w-6xl px-5 sm:px-6 lg:px-8 text-white">
+        <div className="relative z-10 w-full max-w-7xl px-5 sm:px-6 lg:px-8 text-white">
           <h1 className={`text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 leading-tight font-poppins`}>
             Modern homes for modern people
           </h1>
