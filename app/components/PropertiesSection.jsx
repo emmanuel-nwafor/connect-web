@@ -57,10 +57,10 @@ export default function LodgesSection() {
             <div key={lodge.id} className="bg-gray-100 rounded-3xl overflow-hidden">
               <img src={lodge.image} alt={lodge.title} className="w-full h-60 object-cover" />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{lodge.title}</h3>
-                <p className="text-gray-600 mb-4">{lodge.description}</p>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">{lodge.title}</h3>
+                <p className="text-gray-600 text-xs mb-4">{lodge.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-xl font- text-blue-600">${lodge.price.toLocaleString()}</span>
+                  <span className="text-md text-blue-600">${lodge.price.toLocaleString()}</span>
                 </div>
               </div>
             </div>

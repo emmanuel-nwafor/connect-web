@@ -75,10 +75,11 @@ export const AnimatedTestimonials = ({
                   <img
                     src={testimonial.src}
                     alt={testimonial.name}
-                    width={500}
-                    height={500}
+                    width={100}
+                    height={100}
                     draggable={false}
-                    className="h-full w-[260px] rounded-3xl object-cover object-center" />
+                    className="h-full w-full rounded-3xl object-cover object-center"
+                  />
                 </motion.div>
               ))}
             </AnimatePresence>
