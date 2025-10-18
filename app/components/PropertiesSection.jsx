@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import { DirectionAwareHover } from "./ui/direction-aware-hover";
+import React, { useState, useEffect } from "react";
 
 export default function LodgesSection() {
   const [lodges] = useState([
@@ -52,17 +51,19 @@ export default function LodgesSection() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 font-poppins">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Featured Properties</h2>
+        <h2 className="text-xl font-bold text-center text-gray-900 mb-12">Featured Properties</h2>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {lodges.slice(0, 6).map((lodge) => (
-            <DirectionAwareHover
-              key={lodge.id}
-              imageUrl={lodge.image}
-              className="w-full h-[400px] md:h-96 rounded-3xl"
-            >
-              <p className="font-bold text-xl">{lodge.title}</p>
-              <p className="font-normal text-sm">${lodge.price.toLocaleString()}</p>
-            </DirectionAwareHover>
+            <div key={lodge.id} className="bg-gray-100 rounded-3xl overflow-hidden">
+              <img src={lodge.image} alt={lodge.title} className="w-full h-60 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{lodge.title}</h3>
+                <p className="text-gray-600 mb-4">{lodge.description}</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-xl font- text-blue-600">${lodge.price.toLocaleString()}</span>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
